@@ -22,7 +22,7 @@ namespace Poznamky
 
             builder.Services.AddSession(options =>
             {
-                options.Cookie.Name = ".SkolniNoviny";
+                options.Cookie.Name = ".Poznamky";
                 options.Cookie.IsEssential = true;
                 options.IdleTimeout = TimeSpan.FromMinutes(15);
             });
@@ -42,7 +42,7 @@ namespace Poznamky
             });
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Vychozi}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
             // spusteni aplikace
             app.Run();

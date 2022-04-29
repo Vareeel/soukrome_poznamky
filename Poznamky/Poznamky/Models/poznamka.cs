@@ -17,8 +17,9 @@ namespace Poznamky.Models
         public DateTime CasPridani { get; set; }
 
         [Required]
-        public string jmeno_uzivatele { get; set; }
+        public string jmeno{ get; set; }
 
+    
         [Required]
         public bool dulezita_poznamka { get; set; }
     }

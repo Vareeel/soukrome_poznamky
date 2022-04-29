@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Poznamky.Data;
 
@@ -11,9 +12,10 @@ using Poznamky.Data;
 namespace Poznamky.Migrations
 {
     [DbContext(typeof(kontext_data))]
-    partial class kontext_dataModelSnapshot : ModelSnapshot
+    [Migration("20220429174022_migrace")]
+    partial class migrace
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

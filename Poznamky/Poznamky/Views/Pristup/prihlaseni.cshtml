@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+
+ <p><a href="/Home/index">Domů</a></p>
+
+<h1>Prihlaseni</h1>
+
+
+
+<form action="/Pristup/prihlaseni" method="post">
+        <input type="text" name="jmeno" placeholder="Zadej jméno..." /><br />
+        <input type="password" name="heslo" placeholder="Zadej heslo..." /><br />
+        <input type="submit" value="Ověřit" />
+</form>
+
+<div>
+    <p> @ViewData["chyba"]</p>
+</div>
+
+
+
+

@@ -5,7 +5,7 @@ namespace Poznamky.Models
     public class pripojeni
     {
         [Key]
-        public string? jmeno_uzivatele { get; set; }
+        public string? jmeno { get; set; }
 
 
         [Required]

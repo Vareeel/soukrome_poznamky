@@ -59,7 +59,9 @@ namespace Poznamky.Controllers
             novy_uzivatel.jmeno = jmeno;
             novy_uzivatel.heslo = BCrypt.Net.BCrypt.HashPassword(heslo);
             novy_uzivatel.email = email;
-            return View();
+            Databaze.Add(novy_uzivatel);
+            Databaze.SaveChanges();
+            return RedirectToAction("prihlaseni", "Pristup");
 
 
         }

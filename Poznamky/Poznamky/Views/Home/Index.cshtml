@@ -1,9 +1,31 @@
-﻿@{
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor kontext
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+
+
+
+
+
+
+@if (kontext.HttpContext.Session.GetString("jmeno") == null)
+{
+    <div>
     <p><a href="/Pristup/prihlaseni">Prihlaseni</a></p>
     <p><a href="/Pristup/registrace">Registrace</a></p>
     <h1 class="display-4">Archiv poznámek</h1>
 </div>
+        
+}
+
+
+@if (kontext.HttpContext.Session.GetString("jmeno") != null)
+{
+    <p><a href="/Pristup/odhlaseni">Odhlásit se</a></p>
+    <p><a href="/Poznamky/poznamky">Zobrazit vaše poznámky</a></p>
+    <p><a href="/Poznamky/pridat">Vytvoření poznámky</a></p>
+    
+}
+
+    

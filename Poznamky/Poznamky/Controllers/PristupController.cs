@@ -83,9 +83,32 @@ namespace Poznamky.Controllers
             }
 
 
-            return View();
+            pripojeni SameUser = Databaze.Pristup
+           .Where(n => n.jmeno == jmeno)
+           .FirstOrDefault();
+
+            if (SameUser != null && BCrypt.Net.BCrypt.Verify(heslo, SameUser.heslo))
+            {
+
+                HttpContext.Session.SetString("jmeno", SameUser.jmeno.ToString());
+                return RedirectToAction("index", "Home");
+                
+            }
+            else
+            {
+                ViewData["chyba"] = "Špatné jméno nebo heslo.";
+                return View();
+            }
+            
         }
 
-       
+        [HttpGet]
+        public IActionResult odhlaseni()
+        {
+            HttpContext.Session.Remove("jmeno");
+            return RedirectToAction("Index", "Home");
+        }
+
     }
+    
 }

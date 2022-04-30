@@ -7,11 +7,38 @@
     
 @foreach (poznamka p in Model.Where(i => i.jmeno ==HttpContextAccessor.HttpContext.Session.GetString("jmeno") ))
 {
-    <div>
+   
+
+if (p.dulezita_poznamka == true)
+{
+        <div style="border:Red solid 3px">
 
         <p>@p.Nadpis</p>
+        <p>@p.Text</p>
         <p>@p.CasPridani</p> 
-        <p>@p.Text</p> 
+        <p><a href="/Poznamky/smazat">Smazaní poznámky</a></p>
+        </div>
 
-    </div>
+
+
+}
+
+
+    else
+    {
+
+         <div>
+
+            <p>@p.Nadpis</p>
+            <p>@p.Text</p>
+            <p>@p.CasPridani</p> 
+            <p><a href="/Poznamky/smazat">Smazaní poznámky</a></p>
+
+            <div style="padding-left: 1em; padding-right: 1em;">
+                <section style=" border-top: rgb(0, 0, 0) solid 3px;"></section>
+            </div>
+     
+        </div>
+        
+    }
 }
